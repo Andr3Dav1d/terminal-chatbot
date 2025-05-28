@@ -16,3 +16,5 @@ npm install
 - E depois disso, inicie o código usando `node .` ou `node index.js`. A configuração é feita diretamente pelo terminal.
 
 ## Adquirindo a chave de API da Groq
+- A chave de API é necessária para o uso do chatbot.
+- Para adquirir, você deve criar uma [nesse link](https://console.groq.com/keys), copiar e colar na configuração inicial, onde a chave é pedida no prompt.
