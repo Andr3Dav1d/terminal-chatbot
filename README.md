@@ -1,5 +1,5 @@
 # Terminal Chatbot
-- Esse projeto é um agente de chatbot via terminal usando Node.js.
+- Esse projeto é um agente de chatbot via terminal usando TypeScript e Node.
 - As bibliotecas que estão sendo usadas nesse projeto são a `Langchain` e `Groq`.
 
 ---
@@ -13,7 +13,7 @@ git clone https://github.com/Andr3Dav1d/terminal-chatbot.git && cd terminal-chat
 ```
 npm install
 ```
-- E depois disso, inicie o código usando `node .` ou `node index.js`. A configuração é feita diretamente pelo terminal.
+- E depois disso, inicie o código usando `node .` ou `node index.ts`. A configuração é feita diretamente pelo terminal.
 
 ## Adquirindo a chave de API da Groq
 - A chave de API é necessária para o uso do chatbot.
