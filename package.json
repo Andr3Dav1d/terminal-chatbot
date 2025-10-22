@@ -1,12 +1,13 @@
 {
   "name": "chatbot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SnumpusGx",
   "license": "ISC",
+  "type":"module",
   "description": "",
   "dependencies": {
     "@langchain/core": "^0.3.26",
@@ -14,5 +15,8 @@
     "dotenv": "^16.5.0",
     "prompt-sync": "^4.2.0",
     "simpl.db": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/prompt-sync": "^4.2.3"
   }
 }

@@ -1,13 +1,14 @@
-require('dotenv').config();
-const prompt = require('prompt-sync')();
-const SimplDB = require('simpl.db');
-const os = require('os');
-const fs = require('fs');
-const chatbot = require('./chatbot.js')
+import 'dotenv/config';
+import promptSync from 'prompt-sync';
+import SimplDB from 'simpl.db';
+import * as os from 'os';
+import * as fs from 'fs';
+import chatbot from './chatbot.ts';
 
-const db = new SimplDB();
+const prompt = promptSync();
+const db: any = new (SimplDB as any)();
 
-function delay(ms) {
+function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 function linhas () {
@@ -17,7 +18,7 @@ function linhas () {
 const osUserName = os.userInfo().username;
 
 // Função para atualizar ou criar a chave no .env
-function setApiKeyEnv(newKey) {
+function setApiKeyEnv(newKey: string) {
     let envContent = fs.existsSync('.env') ? fs.readFileSync('.env', 'utf8') : '';
     if (envContent.match(/^GROQ_API_KEY=/m)) {
         envContent = envContent.replace(/^GROQ_API_KEY=.*/m, `GROQ_API_KEY=${newKey}`);
@@ -34,7 +35,7 @@ let behavior = db.get('groqUser.behavior') || "Você é um assistente amigável,
 
 console.clear();
 
-function promptObrigatorio(msg) {
+function promptObrigatorio(msg: string) {
     let resposta = '';
     while (!resposta) {
         resposta = prompt(msg);
@@ -78,13 +79,13 @@ const userExists = async () => {
     optionSelector(option);
 }
 
-const optionSelector = async (option) => {
+const optionSelector = async (option: string) => {
     switch (option) {
         case '1':
             console.clear();
             console.log('- Entrando no Chatbot...');
             await delay(2000);
-            await chatbot.run(name, apiKey, behavior); 
+            await chatbot(name, apiKey, behavior); 
             console.log('- Retornando à tela inicial...');
             await delay(2000);
             await userExists();
@@ -116,7 +117,7 @@ const userOptionMenu = () => {
     userOptionSelector(userOption)
 }
 
-const userOptionSelector = (userOption) => {
+const userOptionSelector = (userOption: string) => {
     switch (userOption) {
         case '1': {
             const newName = promptObrigatorio('Digite o novo nome: ') || osUserName;
